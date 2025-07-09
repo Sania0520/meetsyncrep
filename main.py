@@ -1,10 +1,11 @@
-# main.py
-
-
 from fastapi import FastAPI, UploadFile, File
 from process_audio import process_meeting
 
 app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"status": "Server is running"}
 
 @app.post("/process_meeting")
 async def process_meeting_endpoint(file: UploadFile = File(...)):
@@ -29,4 +30,3 @@ def get_transcript(file_id: str):
         return {"error": "Not found"}
     with open(path) as f:
         return json.load(f)
-
