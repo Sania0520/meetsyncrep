@@ -9,7 +9,7 @@ pydub
 python-multipart
 
 # Required dependencies for pyannote
-torch==1.13.1
-torchaudio==0.13.1
-numpy
+torch
+torchaudio
+numpy<2.0
 scipy
